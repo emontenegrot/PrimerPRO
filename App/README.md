@@ -1,2 +1,0 @@
-# PrimerPRO
-Primer proyecto C#
