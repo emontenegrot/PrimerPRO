@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="ManageLogins.aspx.vb" Inherits="WebApplicationC.ManageLogins" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageLogins.aspx.cs" Inherits="WebApplicationC.Account.ManageLogins" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Administre sus inicios de sesión externos.</h2>
-    <asp:PlaceHolder runat="server" ID="SuccessMessagePlaceholder" Visible="false" ViewStateMode="Disabled">
+    <asp:PlaceHolder runat="server" ID="successMessage" Visible="false" ViewStateMode="Disabled">
             <p class="text-success"><%: SuccessMessage %></p>
         </asp:PlaceHolder>
     <div>
@@ -27,7 +27,7 @@
                         <td><%#: Item.LoginProvider %></td>
                         <td>
                             <asp:Button runat="server" Text="Quitar" CommandName="Delete" CausesValidation="false"
-                                ToolTip='<%# "Quitar este " + Item.LoginProvider + " inicio de sesión de su cuenta" %>'
+                                ToolTip='<%# "Quitar esto " + Item.LoginProvider + " inicio de sesión de su cuenta" %>'
                                 Visible="<%# CanRemoveExternalLogins %>" CssClass="btn btn-default" />
                         </td>
                     </tr>
