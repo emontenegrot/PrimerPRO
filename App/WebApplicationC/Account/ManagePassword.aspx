@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Administrar contraseña" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="ManagePassword.aspx.vb" Inherits="WebApplicationC.ManagePassword" %>
+﻿<%@ Page Title="Administrar contraseña" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePassword.aspx.cs" Inherits="WebApplicationC.Account.ManagePassword" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Comprobar número de teléfono" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="false" CodeBehind="VerifyPhoneNumber.aspx.vb" Inherits="WebApplicationC.VerifyPhoneNumber" %>
+﻿<%@ Page Title="Comprobar número de teléfono" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerifyPhoneNumber.aspx.cs" Inherits="WebApplicationC.Account.VerifyPhoneNumber" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
  <h2><%: Title %>.</h2>

@@ -1,14 +1,12 @@
-﻿<%@ Page Title="Administrar cuenta" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Manage.aspx.vb" Inherits="WebApplicationC.Manage" %>
+﻿<%@ Page Title="Administrar cuenta" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="WebApplicationC.Account.Manage" %>
 
-<%@ Import Namespace="WebApplicationC" %>
-<%@ Import Namespace="Microsoft.AspNet.Identity" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
 
     <div>
-        <asp:PlaceHolder runat="server" ID="SuccessMessagePlaceHolder" Visible="false" ViewStateMode="Disabled">
+        <asp:PlaceHolder runat="server" ID="successMessage" Visible="false" ViewStateMode="Disabled">
             <p class="text-success"><%: SuccessMessage %></p>
         </asp:PlaceHolder>
     </div>
@@ -25,7 +23,7 @@
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
                     </dd>
                     <dt>Inicios de sesión externos:</dt>
-                    <dd><%:LoginsCount %>
+                    <dd><%: LoginsCount %>
                         <asp:HyperLink NavigateUrl="/Account/ManageLogins" Text="[Manage]" runat="server" />
 
                     </dd>
@@ -37,44 +35,46 @@
                     --%>
                     <%--
                     <dt>Número de teléfono:</dt>
-                     --%>
-                    <% If HasPhoneNumber Then %>
-                    <%--
+                    <% if (HasPhoneNumber)
+                       { %>
                     <dd>
                         <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Add]" />
                     </dd>
-                    --%>
-                    <% Else %>
-                    <%--
+                    <% }
+                       else
+                       { %>
                     <dd>
-                    
                         <asp:Label Text="" ID="PhoneNumber" runat="server" />
                         <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Change]" /> &nbsp;|&nbsp;
                         <asp:LinkButton Text="[Remove]" OnClick="RemovePhone_Click" runat="server" />
                     </dd>
+                    <% } %>
                     --%>
-                    <% End If %>
+
                     <dt>Autenticación de dos factores:</dt>
                     <dd>
                         <p>
                             No hay ningún proveedor de autenticación en dos fases configurado. Vea <a href="http://go.microsoft.com/fwlink/?LinkId=403804">este artículo</a>
                              para obtener detalles sobre cómo configurar esta aplicación de ASP.NET para que sea compatible con la autenticación en dos fases.
-                        </p>                        
-                        <% If TwoFactorEnabled Then %>
+                        </p>
+                        <% if (TwoFactorEnabled)
+                          { %> 
                         <%--
                         Habilitado
                         <asp:LinkButton Text="[Disable]" runat="server" CommandArgument="false" OnClick="TwoFactorDisable_Click" />
                         --%>
-                        <% Else %>
-                       	<%--
-                       	Deshabilitado
+                        <% }
+                          else
+                          { %> 
+                        <%--
+                        Deshabilitado
                         <asp:LinkButton Text="[Enable]" CommandArgument="true" OnClick="TwoFactorEnable_Click" runat="server" />
                         --%>
-                        <% End If %>
+                        <% } %>
                     </dd>
                 </dl>
             </div>
         </div>
     </div>
-</asp:Content>
 
+</asp:Content>

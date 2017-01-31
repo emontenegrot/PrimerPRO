@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contraseña olvidada" Language="vb" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Forgot.aspx.vb" Inherits="WebApplicationC.ForgotPassword" Async="true" %>
+﻿<%@ Page Title="Contraseña olvidada" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Forgot.aspx.cs" Inherits="WebApplicationC.Account.ForgotPassword" Async="true" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>
